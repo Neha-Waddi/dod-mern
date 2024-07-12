@@ -9,7 +9,7 @@ const signup = async (req, res) => {
       return res.status(400).json({ message: "Username already taken" });
     }
 
-    const user = await User.create({ userName,password, domainName, url });
+    const user = await User.create({ userName, password, domainName, url });
     res.status(200).json({ user });
   } catch (err) {
     res.status(500).json({ message: "Error while signing up" });
@@ -22,7 +22,7 @@ const login = async (req, res) => {
     const { userName, password } = req.body;
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
-      if (password===exist.password) {
+      if (password === exist.password) {
         return res.status(200).json({ message: "User logged in successfully" });
       } else {
         return res.status(400).json({ message: "Wrong password" });
@@ -35,4 +35,64 @@ const login = async (req, res) => {
   }
 };
 
-export { signup, login };
+const editPassword = async (req, res) => {
+  try {
+    const { userName, enteredPassword, newPassword } = req.body;
+    const exist = await User.findOne({ where: { userName: userName } });
+    if (exist) {
+      if (enteredPassword === exist.password) {
+        await User.update(
+          { password: newPassword },
+          { where: { userName: userName } }
+        );
+        res.status(200).json({ message: "password changed sucessfully" });
+      } else {
+        res.status(400).json({ message: "Old password is wrong" });
+      }
+    } else {
+      res.status(400).json({ message: "Account with username does not exist" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Internal error while editing password" });
+  }
+};
+
+const editUrl = async (req, res) => {
+  try {
+    const { userName, enteredPassword, newUrl } = req.body;
+    const exist = await User.findOne({ where: { userName: userName } });
+    if (exist) {
+      if (enteredPassword === exist.password) {
+        await User.update({ url: newUrl }, { where: { userName: userName } });
+        res.status(200).json({ message: "url changed sucessfully" });
+      } else {
+        res.status(400).json({ message: "Old password is wrong" });
+      }
+    } else {
+      res.status(400).json({ message: "Account with username does not exist" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Internal error while editing url" });
+  }
+};
+
+const editDomain = async (req, res) => {
+  try {
+    const { userName, enteredPassword, newDomainName } = req.body;
+    const exist = await User.findOne({ where: { userName: userName } });
+    if (exist) {
+      if (enteredPassword === exist.password) {
+        await User.update({ domainName: newDomainName }, { where: { userName: userName } });
+        res.status(200).json({ message: "domain changed sucessfully" });
+      } else {
+        res.status(400).json({ message: "Old password is wrong" });
+      }
+    } else {
+      res.status(400).json({ message: "Account with username does not exist" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Internal error while editing domain" });
+  }
+};
+
+export { signup, login, editPassword, editUrl, editDomain };
