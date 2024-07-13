@@ -1,0 +1,11 @@
+.start {
+  background-color: #bfbfbf;
+  transition-duration: 2s;
+  margin: 0;
+  padding: 0;
+  min-width: 100vh;
+}
+
+.start:hover {
+  background-color: #999999;
+}

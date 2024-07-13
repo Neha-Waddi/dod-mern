@@ -1,0 +1,12 @@
+.home-display {
+  margin-left: 30px;
+}
+
+.home-display ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.home-display li {
+  margin: 5px 0;
+}
