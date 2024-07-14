@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Login.css";
+import { useAccountContext } from "../../../context/AccountContex";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-
+  const {setAccount}=useAccountContext();
+  const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/users/login", {
-        username,
-        password,
+      const response = await axios.post("http://localhost:3001/user/login", {
+        userName: userName,
+        password:password,
       });
 
       if (response.status === 200) {
+        setAccount(response.data);
         alert("Login success!!");
+        navigate('/')
       } else {
         alert("Incorrect credentials");
       }
@@ -31,8 +36,8 @@ const Login = (props) => {
         <div className="form-group">
           <label className="form-label">Username</label>
           <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
             type="text"
             placeholder="Your username"
             className="form-input"
@@ -43,7 +48,7 @@ const Login = (props) => {
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            type="password"
+            type="current-password"
             placeholder="Password"
             className="form-input"
           />

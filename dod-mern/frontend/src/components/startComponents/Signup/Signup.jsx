@@ -69,7 +69,7 @@ const Signup = (props) => {
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            type="password"
+            type="new-password"
             placeholder="Password"
             className="form-input"
           />
@@ -79,7 +79,7 @@ const Signup = (props) => {
           <input
             value={rePassword}
             onChange={(e) => setRePassword(e.target.value)}
-            type="password"
+            type="new-password"
             placeholder="Password"
             className="form-input"
           />
