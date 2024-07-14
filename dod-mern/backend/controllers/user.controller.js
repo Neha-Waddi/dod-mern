@@ -3,12 +3,14 @@ import User from "../models/user.model.js";
 const signup = async (req, res) => {
   try {
     const { userName, password, domainName, url } = req.body;
-    console.log( userName, password, domainName, url)
+    console.log(userName, password, domainName, url);
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
       return res.status(400).json({ message: "Username already taken" });
     }
-    const domainExist = await User.findOne({ where: { domainName: domainName } });
+    const domainExist = await User.findOne({
+      where: { domainName: domainName },
+    });
     if (domainExist) {
       return res.status(400).json({ message: "domain name already taken" });
     }
@@ -27,7 +29,9 @@ const login = async (req, res) => {
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
       if (password === exist.password) {
-        return res.status(200).json({ message: "User logged in successfully" ,data:exist});
+        return res
+          .status(200)
+          .json({ message: "User logged in successfully", data: exist });
       } else {
         return res.status(400).json({ message: "Wrong password" });
       }
@@ -86,7 +90,10 @@ const editDomain = async (req, res) => {
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
       if (enteredPassword === exist.password) {
-        await User.update({ domainName: newDomainName }, { where: { userName: userName } });
+        await User.update(
+          { domainName: newDomainName },
+          { where: { userName: userName } }
+        );
         res.status(200).json({ message: "domain changed sucessfully" });
       } else {
         res.status(400).json({ message: "Old password is wrong" });
@@ -99,4 +106,18 @@ const editDomain = async (req, res) => {
   }
 };
 
-export { signup, login, editPassword, editUrl, editDomain };
+const searchDomain = async (req, res) => {
+  try {
+    const { domainName } = req.body;
+    const exist = await User.findOne({ where: { domainName: domainName } });
+    if (exist) {
+      res.status(200).json({ message: "domain exist", data: exist.url });
+    } else {
+      res.status(400).json({ message: "domain does not exist" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Internal error while searching domain" });
+  }
+};
+
+export { signup, login, editPassword, editUrl, editDomain, searchDomain };

@@ -35,10 +35,6 @@ const Edit = () => (
     >
       Go To Home
     </button>
-    <marquee behavior="scroll" direction="left">
-      if you are lucky! then i am Lucky. If you are bot Fellow then i am bot
-      Fellow!
-    </marquee>
     <Footer />
   </div>
 );
