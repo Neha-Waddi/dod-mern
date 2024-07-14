@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const {setAccount}=useAccountContext();
+  const {account,setAccount}=useAccountContext();
   const navigate=useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +18,8 @@ const Login = (props) => {
       });
 
       if (response.status === 200) {
-        setAccount(response.data);
+        // console.log(response.data.data)
+        setAccount(response.data.data);
         alert("Login success!!");
         navigate('/')
       } else {

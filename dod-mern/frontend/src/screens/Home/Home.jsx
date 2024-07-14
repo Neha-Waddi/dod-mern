@@ -4,9 +4,12 @@ import Footer from '../../common/Footer/Footer';
 import HomeDisplay from '../../components/homeComponents/HomeDisplay/HomeDisplay';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
+import { useAccountContext } from '../../context/AccountContex';
 
 const Home = () => {
   const navigate = useNavigate();
+  const {account}=useAccountContext();
+  // console.log(account)
 
   const handleAuthClick = (authType) => {
     navigate('/Start', { state: { authType } });

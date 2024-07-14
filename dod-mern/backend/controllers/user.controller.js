@@ -27,7 +27,7 @@ const login = async (req, res) => {
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
       if (password === exist.password) {
-        return res.status(200).json({ message: "User logged in successfully" });
+        return res.status(200).json({ message: "User logged in successfully" ,data:exist});
       } else {
         return res.status(400).json({ message: "Wrong password" });
       }

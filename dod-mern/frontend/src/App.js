@@ -7,15 +7,15 @@ import { AccountContextProvider } from "./context/AccountContex";
 
 function App() {
   return (
-    <Router>
-      <AccountContextProvider>
+    <AccountContextProvider>
+      <Router>
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/start" exact element={<Start />} />
           <Route path="/edit" element={<Edit />} />
         </Routes>
-      </AccountContextProvider>
-    </Router>
+      </Router>
+    </AccountContextProvider>
   );
 }
 
