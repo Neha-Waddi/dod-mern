@@ -87,6 +87,7 @@ const editUrl = async (req, res) => {
 const editDomain = async (req, res) => {
   try {
     const { userName, enteredPassword, newDomainName } = req.body;
+    console.log(userName, enteredPassword, newDomainName);
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
       if (enteredPassword === exist.password) {
