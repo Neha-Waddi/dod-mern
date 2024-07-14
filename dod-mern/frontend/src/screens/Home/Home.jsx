@@ -68,12 +68,13 @@ const Home = () => {
 
       {account !== null ? (
         <>
+          <h1>welcome {account.userName}</h1>
           <div className="logged-in-actions">
             <button
-              onClick={() => navigate("/editProfile")}
+              onClick={() => navigate("/edit")}
               className="auth-button edit-button"
             >
-              <b>Edit Profile</b>
+              <b>Edit Details</b>
             </button>
             <button
               onClick={handleLogout}

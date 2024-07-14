@@ -1,42 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Edit.css";
 import Header from "../../common/Header/Header";
 import Footer from "../../common/Footer/Footer";
-import "./Edit.css";
+import EditDomain from "../../components/editComponents/EditDomain/EditDomain";
+import EditPassword from "../../components/editComponents/EditPassword/EditPassword";
+import EditUrl from "../../components/editComponents/EditUrl/EditUrl";
 
-const Edit = () => (
-  <div className="edit">
-    <Header />
-    <a href="logout.php" className="logout-link">
-      logout
-    </a>
-    <div className="edit-section">
-      <button
-        onClick={() => (window.location.href = "editP.php")}
-        className="edit-button"
-      >
-        Edit Password
-      </button>
-      <button
-        onClick={() => (window.location.href = "editD.php")}
-        className="edit-button"
-      >
-        Edit Domain
-      </button>
-      <button
-        onClick={() => (window.location.href = "editU.php")}
-        className="edit-button"
-      >
-        Edit URL
-      </button>
+const Edit = () => {
+  const [selectedOption, setSelectedOption] = useState("password");
+
+  const handleButtonClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  return (
+    <div className="edit">
+      <Header />
+      <div className="edit-section">
+        <button
+          onClick={() => handleButtonClick("password")}
+          className="edit-button"
+        >
+          Edit Password
+        </button>
+        <button
+          onClick={() => handleButtonClick("domain")}
+          className="edit-button"
+        >
+          Edit Domain
+        </button>
+        <button
+          onClick={() => handleButtonClick("url")}
+          className="edit-button"
+        >
+          Edit URL
+        </button>
+      </div>
+      {selectedOption === "password" && <EditPassword />}
+      {selectedOption === "domain" && <EditDomain />}
+      {selectedOption === "url" && <EditUrl />}
+      <Footer />
     </div>
-    <button
-      onClick={() => (window.location.href = "homeL.php")}
-      className="home-button"
-    >
-      Go To Home
-    </button>
-    <Footer />
-  </div>
-);
+  );
+};
 
 export default Edit;
