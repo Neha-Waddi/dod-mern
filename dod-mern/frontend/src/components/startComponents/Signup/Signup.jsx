@@ -3,25 +3,31 @@ import axios from "axios";
 import "./Signup.css";
 
 const Signup = (props) => {
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [domainName, setDomainName] = useState("");
   const [url, setUrl] = useState("");
   const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== rePassword) {
+      alert("passwords doesnot match");
+      return;
+    }
     try {
-      const response = await axios.post("http://localhost:3001/users/signup", {
-        username,
-        domainName,
-        url,
-        password,
+      const response = await axios.post("http://localhost:3001/user/signup", {
+        userName:userName,
+        password:password,
+        domainName:domainName,
+        url:url,
       });
       console.log(response.data);
-      props.onFormSwitch();
       alert("Signup success!!");
+      props.onFormSwitch();
     } catch (error) {
       console.error("Error:", error);
+      alert("Internal error Signup!!");
     }
   };
 
@@ -29,12 +35,12 @@ const Signup = (props) => {
     <div className="signup">
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
-          <label className="form-label">Username</label>
+          <label className="form-label">userName</label>
           <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
             type="text"
-            placeholder="Your username"
+            placeholder="Your userName"
             className="form-input"
           />
         </div>
@@ -53,8 +59,8 @@ const Signup = (props) => {
           <input
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            type="text"
-            placeholder="Your URL"
+            type="url"
+            placeholder="Your URL -(https://your/link)"
             className="form-input"
           />
         </div>
@@ -63,6 +69,16 @@ const Signup = (props) => {
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="Password"
+            className="form-input"
+          />
+        </div>
+        <div className="form-group">
+          <label className="form-label">Password</label>
+          <input
+            value={rePassword}
+            onChange={(e) => setRePassword(e.target.value)}
             type="password"
             placeholder="Password"
             className="form-input"

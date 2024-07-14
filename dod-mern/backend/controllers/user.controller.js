@@ -3,10 +3,14 @@ import User from "../models/user.model.js";
 const signup = async (req, res) => {
   try {
     const { userName, password, domainName, url } = req.body;
-
+    console.log( userName, password, domainName, url)
     const exist = await User.findOne({ where: { userName: userName } });
     if (exist) {
       return res.status(400).json({ message: "Username already taken" });
+    }
+    const domainExist = await User.findOne({ where: { domainName: domainName } });
+    if (domainExist) {
+      return res.status(400).json({ message: "domain name already taken" });
     }
 
     const user = await User.create({ userName, password, domainName, url });
