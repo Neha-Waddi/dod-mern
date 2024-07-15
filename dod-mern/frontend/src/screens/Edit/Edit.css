@@ -1,66 +1,30 @@
 .edit {
-  background-color: #bfbfbf;
-  transition-duration: 2s;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   min-width: 100vh;
 }
 
-.edit:hover {
-  background-color: #999999;
-}
-
-.logout-link {
-  display: block;
-  margin: 20px;
-  text-align: center;
-  color: white;
-  text-decoration: none;
-}
-
 .edit-section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: 10px;
+  padding: 20px;
 }
 
 .edit-button {
+  padding: 15px;
+  background-color: #000000;
   color: white;
-  background-color: rgb(46, 164, 79);
   border: none;
-  height: 25px;
-  width: 150px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: box-shadow 0.15s;
-  margin: 10px;
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.9;
+  border-radius: 3px;
+  letter-spacing: 2px;
 }
 
 .edit-button:hover {
-  box-shadow: 0px 2px 5px black;
-}
-
-.edit-button:active {
-  box-shadow: 0px 0px 0px black;
-}
-
-.home-button {
-  color: white;
-  background-color: rgb(46, 164, 79);
-  border: none;
-  height: 25px;
-  width: 150px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: box-shadow 0.15s;
-  margin: 20px;
-}
-
-.home-button:hover {
-  box-shadow: 0px 2px 5px black;
-}
-
-.home-button:active {
-  box-shadow: 0px 0px 0px black;
+  opacity: 1;
 }

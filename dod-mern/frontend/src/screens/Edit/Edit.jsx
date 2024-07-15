@@ -45,7 +45,7 @@ const Edit = () => {
           <Footer />
         </>
       ) : (
-        <>please login before acessing this</>
+        <>please login before accessing this</>
       )}
     </div>
   );

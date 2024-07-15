@@ -9,6 +9,7 @@ const Header = () => {
     <div className="header">
       <h1 className="title">DOMAIN-IN-DOMAIN</h1>
       <CiHome
+        className="home-icon"
         onClick={() => {
           navigate("/");
         }}

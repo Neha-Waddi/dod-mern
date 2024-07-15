@@ -1,97 +1,112 @@
 .home {
-  background-color: #bfbfbf;
-  transition-duration: 2s;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   min-width: 100vh;
 }
 
-.home:hover {
-  background-color: #999999;
-}
-
 .search-form {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .search-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .search-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .search-input {
   border: none;
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.15s;
-  width: 500px;
-  height: 25px;
+  transition: box-shadow 1s, background-color 0.2s;
+  width: 250px;
+  margin: 3px;
+  padding: 15px;
+  background: #e7e7e7;
+  color: orangered;
+}
+
+.search-input:focus {
+  background-color: #c5c5c5;
+  outline: none;
+}
+
+.search-input:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .search-button {
+  padding: 15px;
+  background-color: #000000;
   color: white;
-  background-color: rgb(46, 164, 79);
+  margin: 5px;
   border: none;
-  height: 25px;
-  width: 90px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: box-shadow 0.15s;
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.9;
+  border-radius: 3px;
+  letter-spacing: 2px;
 }
 
 .search-button:hover {
-  box-shadow: 0px 2px 5px black;
+  opacity: 1;
 }
 
-.search-button:active {
-  box-shadow: 0px 0px 0px black;
+.logged-in-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .auth-buttons {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .auth-button {
+  padding: 15px;
+  background-color: #000000;
   color: white;
-  background-color: rgb(46, 164, 79);
-  border: none;
-  height: 25px;
-  width: 90px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: box-shadow 0.15s;
   margin: 5px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.9;
+  border-radius: 3px;
+  letter-spacing: 2px;
 }
 
 .auth-button:hover {
-  box-shadow: 0px 2px 5px black;
+  opacity: 1;
 }
 
-.auth-button:active {
-  box-shadow: 0px 0px 0px black;
+.auth-button.login-button {
+  background-color: #007bff;
 }
 
-.login-button {
-  background-color: rgb(46, 164, 79);
+.auth-button.signup-button {
+  background-color: #28a745;
 }
 
-.signup-button {
-  background-color: rgb(46, 164, 79);
+.auth-button.logout-button {
+  background-color: #dc3545;
 }
 
-
+.auth-button.edit-button {
+  background-color: #ffc107;
+}

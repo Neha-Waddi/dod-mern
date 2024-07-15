@@ -1,12 +1,28 @@
 .home-display {
-  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6d6d6;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .home-display ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .home-display li {
-  margin: 5px 0;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.home-display h6 {
+  margin-top: 20px;
+  color: #777;
 }

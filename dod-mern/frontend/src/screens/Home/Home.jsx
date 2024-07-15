@@ -11,6 +11,7 @@ const Home = () => {
   const [searchedDomain, setSearchedDomain] = useState("");
   const navigate = useNavigate();
   const { account, setAccount } = useAccountContext();
+
   const handleAuthClick = (authType) => {
     navigate("/Start", { state: { authType } });
   };
