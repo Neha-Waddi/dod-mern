@@ -1,12 +1,18 @@
 .header {
-  background-color: #333;
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
   padding: 20px;
+  border-radius: 3px;
+  text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .title {
-  margin: 0;
+  font-size: 24px;
+}
+
+.home-icon {
+  cursor: pointer;
 }

@@ -1,11 +1,15 @@
 .start {
-  background-color: #bfbfbf;
-  transition-duration: 2s;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   min-width: 100vh;
 }
 
-.start:hover {
-  background-color: #999999;
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
 }

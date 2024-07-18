@@ -1,46 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Edit.css";
 import Header from "../../common/Header/Header";
 import Footer from "../../common/Footer/Footer";
-import "./Edit.css";
+import EditDomain from "../../components/editComponents/EditDomain/EditDomain";
+import EditPassword from "../../components/editComponents/EditPassword/EditPassword";
+import EditUrl from "../../components/editComponents/EditUrl/EditUrl";
+import { useAccountContext } from "../../context/AccountContex";
 
-const Edit = () => (
-  <div className="edit">
-    <Header />
-    <a href="logout.php" className="logout-link">
-      logout
-    </a>
-    <div className="edit-section">
-      <button
-        onClick={() => (window.location.href = "editP.php")}
-        className="edit-button"
-      >
-        Edit Password
-      </button>
-      <button
-        onClick={() => (window.location.href = "editD.php")}
-        className="edit-button"
-      >
-        Edit Domain
-      </button>
-      <button
-        onClick={() => (window.location.href = "editU.php")}
-        className="edit-button"
-      >
-        Edit URL
-      </button>
+const Edit = () => {
+  const [selectedOption, setSelectedOption] = useState("password");
+  const { account } = useAccountContext();
+  const handleButtonClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  return (
+    <div className="edit">
+      {account !== null ? (
+        <>
+          <Header />
+          <div className="edit-section">
+            <button
+              onClick={() => handleButtonClick("password")}
+              className="edit-button"
+            >
+              Edit Password
+            </button>
+            <button
+              onClick={() => handleButtonClick("domain")}
+              className="edit-button"
+            >
+              Edit Domain
+            </button>
+            <button
+              onClick={() => handleButtonClick("url")}
+              className="edit-button"
+            >
+              Edit URL
+            </button>
+          </div>
+          {selectedOption === "password" && <EditPassword />}
+          {selectedOption === "domain" && <EditDomain />}
+          {selectedOption === "url" && <EditUrl />}
+          <Footer />
+        </>
+      ) : (
+        <>please login before accessing this</>
+      )}
     </div>
-    <button
-      onClick={() => (window.location.href = "homeL.php")}
-      className="home-button"
-    >
-      Go To Home
-    </button>
-    <marquee behavior="scroll" direction="left">
-      if you are lucky! then i am Lucky. If you are bot Fellow then i am bot
-      Fellow!
-    </marquee>
-    <Footer />
-  </div>
-);
+  );
+};
 
 export default Edit;

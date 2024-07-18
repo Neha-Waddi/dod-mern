@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => (
   <footer className="footer">
-    <p>Copyright &copy; 1992 DomainaInDomain</p>
+    <p>&copy; 1992 DomainaInDomain</p>
   </footer>
 );
 

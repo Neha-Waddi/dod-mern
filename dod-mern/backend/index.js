@@ -12,6 +12,9 @@ const app=express();
 app.use(bodyParser.urlencoded({extended:true}));;
 app.use(bodyParser.json());
 
+import cors from 'cors'
+app.use(cors())
+
 import userRoutes from "./routes/user.routes.js"
 app.use('/user',userRoutes);
 
