@@ -13,6 +13,8 @@
 .login-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form-group {
@@ -74,8 +76,9 @@
   margin: 5px;
   border: none;
   cursor: pointer;
-  width: 175px;
+  width: 320px;
   opacity: 0.9;
   border-radius: 3px;
   letter-spacing: 2px;
+  text-wrap: nowrap;
 }
