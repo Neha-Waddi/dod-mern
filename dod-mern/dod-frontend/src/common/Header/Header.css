@@ -10,9 +10,12 @@
 }
 
 .title {
+  cursor: pointer;
   font-size: 24px;
 }
 
 .home-icon {
   cursor: pointer;
+  height: 30px;
+  width: 30px;
 }

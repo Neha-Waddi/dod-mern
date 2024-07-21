@@ -46,6 +46,7 @@ const Home = () => {
       <Header />
       <form onSubmit={handleSubmit} className="search-form">
         <div className="search-section">
+          {account && <h1>welcome {account.userName}</h1>}
           <h2>Search Below</h2>
         </div>
         <div className="search-container">
@@ -69,7 +70,6 @@ const Home = () => {
 
       {account !== null ? (
         <>
-          <h1>welcome {account.userName}</h1>
           <div className="logged-in-actions">
             <button
               onClick={() => navigate("/edit")}
@@ -103,10 +103,6 @@ const Home = () => {
           </section>
         </div>
       )}
-
-      <h2>
-        <b>Our main targets</b>
-      </h2>
       <HomeDisplay />
       <Footer />
     </div>
