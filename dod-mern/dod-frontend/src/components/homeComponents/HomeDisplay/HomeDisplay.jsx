@@ -1,15 +1,19 @@
-import React from 'react';
-import './HomeDisplay.css';
+import React from "react";
+import "./HomeDisplay.css";
 
 const HomeDisplay = () => (
-  <div className="home-display">
-    <ul>
-      <li>To provide access</li>
-      <li>Make it easy to find your website</li>
-      <li>Domain Names</li>
-    </ul>
-    <h6>..................</h6>
-  </div>
+  <>
+    <h2>
+      <b>Our Main Targets</b>
+    </h2>
+    <div className="home-display">
+      <ul>
+        <li>To provide access</li>
+        <li>Make it easy to find your Website</li>
+        <li>Provide Acessable Domain Names</li>
+      </ul>
+    </div>
+  </>
 );
 
 export default HomeDisplay;

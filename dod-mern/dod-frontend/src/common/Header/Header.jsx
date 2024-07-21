@@ -7,7 +7,14 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <div className="header">
-      <h1 className="title">DOMAIN-IN-DOMAIN</h1>
+      <h1
+        className="title"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        DOMAIN-IN-DOMAIN
+      </h1>
       <CiHome
         className="home-icon"
         onClick={() => {
